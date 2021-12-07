@@ -1,6 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
 namespace AppShopping
 {
@@ -10,7 +8,7 @@ namespace AppShopping
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new Menu();
         }
 
         protected override void OnStart()

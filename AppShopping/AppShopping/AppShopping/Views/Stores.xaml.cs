@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
-namespace AppShopping
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace AppShopping.Views
 {
-    public partial class MainPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Stores : ContentPage
     {
-        public MainPage()
+        public Stores()
         {
             InitializeComponent();
         }
