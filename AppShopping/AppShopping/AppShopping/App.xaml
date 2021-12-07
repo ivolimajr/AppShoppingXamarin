@@ -38,9 +38,13 @@
             </Style>
             
             <Style TargetType="Label" x:Key="MenuHeaderLabel">
-                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontFamily" Value="MontserratBold"/>
                 <Setter Property="FontSize" Value="12"/>
                 <Setter Property="TextColor" Value="{StaticResource White}"/>
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="MontserratRegular"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

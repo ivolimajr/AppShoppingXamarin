@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppShopping.Android", "AppS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppShopping.iOS", "AppShopping\AppShopping.iOS\AppShopping.iOS.csproj", "{DA015F64-BA64-480C-AC7B-90E01912D6BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppShopping", "AppShopping\AppShopping\AppShopping.csproj", "{52759FFC-1B51-4418-845D-3CCA0EE74E3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppShopping", "AppShopping\AppShopping\AppShopping.csproj", "{52759FFC-1B51-4418-845D-3CCA0EE74E3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
