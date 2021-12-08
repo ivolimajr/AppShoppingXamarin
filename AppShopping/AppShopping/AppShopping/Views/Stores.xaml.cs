@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
+using AppShopping.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +11,7 @@ namespace AppShopping.Views
         public Stores()
         {
             InitializeComponent();
+            BindingContext = new StoresViewModel();
         }
     }
 }

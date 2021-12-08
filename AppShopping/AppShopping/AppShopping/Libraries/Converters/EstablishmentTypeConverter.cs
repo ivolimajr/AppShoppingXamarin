@@ -1,8 +1,6 @@
 ﻿using AppShopping.Libraries.Enums;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using Xamarin.Forms;
 
 namespace AppShopping.Libraries.Converters
@@ -13,7 +11,7 @@ namespace AppShopping.Libraries.Converters
         {
             EstablishmentType type = (EstablishmentType)value;
 
-            return (type == EstablishmentType.Store) ? "Loja" : "Restaurante";
+            return (type == EstablishmentType.STORE) ? "Loja" : "Restaurante";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
