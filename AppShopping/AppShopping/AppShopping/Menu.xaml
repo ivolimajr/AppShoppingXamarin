@@ -21,6 +21,7 @@
     <ShellContent Title="Novidades" Icon="MenuIconNews" ContentTemplate="{DataTemplate Views:Stores}" />
     <ShellContent Title="Como Chegar" Icon="MenuIconMaps" ContentTemplate="{DataTemplate Views:Stores}" />
     <ShellContent Title="Wifi" Icon="MenuIconWifi" ContentTemplate="{DataTemplate Views:Stores}" />
+    <ShellContent Title="Detail" Icon="MenuIconWifi" ContentTemplate="{DataTemplate Views:EstablishmentDetail}" />
     <!--end:Menu-->
 
 </Shell>
