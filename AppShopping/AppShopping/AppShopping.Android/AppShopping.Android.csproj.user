@@ -3,7 +3,7 @@
   <PropertyGroup>
     <SelectedDevice>Motorola moto g%286%29 plus</SelectedDevice>
     <ActiveDebugProfile>Motorola moto g%286%29 plus</ActiveDebugProfile>
-    <DefaultDevice>tablet_m-dpi_7in_pie_9_0_-_api_28</DefaultDevice>
+    <DefaultDevice>pixel_2_pie_9_0_-_api_28</DefaultDevice>
     <AndroidDesignerPreferredTheme>MainTheme</AndroidDesignerPreferredTheme>
   </PropertyGroup>
 </Project>

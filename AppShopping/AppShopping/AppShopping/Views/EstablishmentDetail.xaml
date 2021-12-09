@@ -14,9 +14,27 @@
     </Shell.TitleView>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Restaurante"/>
-            <Label Text="{Binding Establishment.Name}" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <StackLayout Padding="30" Spacing="0">
+            <Label Text="Restaurante" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource EstablishmentType}"/>
+            <Label Text="{Binding Establishment.Name}" HorizontalOptions="Start" VerticalOptions="Center"  Style="{StaticResource EstablishmentName}"/>
+            <Frame BorderColor="{StaticResource Black}">
+                <Grid ColumnDefinitions="1*,1*,1*,1*,1*,1*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+                    
+                    <Image Source="{Binding Establishment.Logo}" Grid.ColumnSpan="2"/>
+                    <Label Text="{Binding Establishment.Name}" Style="{StaticResource EstablishmentName}" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    
+                    <Label Text="{Binding Establishment.Description}" Grid.Row="1" Grid.ColumnSpan="6"/>
+                    
+                    <Image Source="pin" Grid.Row="2"/>
+                    <Label Text="Localização" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5"/>
+                    <Label Text="{Binding Establishment.Address}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5"/>
+
+                    <Image Source="phone" Grid.Row="4"/>
+                    <Label Text="Telefone" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5"/>
+                    <Label Text="{Binding Establishment.Phone}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5"/>
+
+                </Grid>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
