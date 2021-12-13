@@ -79,18 +79,32 @@
                 <Setter Property="TextColor" Value="{StaticResource Black}"/>
             </Style>
 
-            <Style TargetType="Label" x:Key="EstablishmentType">
+            <Style TargetType="Label" x:Key="TitleType">
                 <Setter Property="FontFamily" Value="MontserratRegular"/>
                 <Setter Property="FontSize" Value="24"/>
                 <Setter Property="TextColor" Value="{StaticResource Black}"/>
             </Style>
 
-            <Style TargetType="Label" x:Key="EstablishmentName">
+            <Style TargetType="Label" x:Key="TitleName">
                 <Setter Property="Margin" Value="0,-5,0,0"/>
                 <Setter Property="FontFamily" Value="MontserratRegular"/>
                 <Setter Property="FontSize" Value="36"/>
                 <Setter Property="TextColor" Value="{StaticResource PrimaryColor}"/>
             </Style>
+
+            <Style TargetType="Label" x:Key="Subtitle">
+                <Setter Property="FontFamily" Value="MontserratSemiBold"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="{StaticResource Black}"/>
+            </Style>
+
+            <Style TargetType="Frame">
+                <Setter Property="Padding" Value="10,0"/>
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="BorderColor" Value="{StaticResource BorderColor}"/>
+                <Setter Property="CornerRadius" Value="0"/>
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

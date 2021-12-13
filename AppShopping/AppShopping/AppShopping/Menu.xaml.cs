@@ -1,4 +1,5 @@
 ﻿
+using AppShopping.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,6 +11,7 @@ namespace AppShopping
         public Menu()
         {
             InitializeComponent();
+            Routing.RegisterRoute("establishment/detail", typeof(EstablishmentDetail));
         }
     }
 }

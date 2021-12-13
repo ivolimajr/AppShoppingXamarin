@@ -14,6 +14,7 @@ namespace AppShopping.ViewModels
     {
         public String SearchWord { get; set; }
         public ICommand SearchCommand { get; set; }
+        public ICommand DetailViewCommand { get; set; }
 
         private List<Establishment> _stablishments;
         public List<Establishment> Establishments
@@ -32,6 +33,7 @@ namespace AppShopping.ViewModels
         public StoresViewModel()
         {
             SearchCommand = new Command(Search);
+            DetailViewCommand = new Command<Establishment>(DetailView);
             init();
         }
 
@@ -46,6 +48,11 @@ namespace AppShopping.ViewModels
         private void Search()
         {
             Establishments = _allEstablishments.Where(e => e.Name.ToLower().Contains(SearchWord.ToLower())).ToList();
+        }
+
+        private void DetailView(Establishment establishment)
+        {
+            Shell.Current.GoToAsync("establishment/detail");
         }
     }
 }
