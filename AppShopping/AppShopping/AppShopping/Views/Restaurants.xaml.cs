@@ -1,17 +1,15 @@
 ﻿
-using AppShopping.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace AppShopping.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Stores : ContentPage
+    public partial class Restaurants : ContentPage
     {
-        public Stores()
+        public Restaurants()
         {
             InitializeComponent();
-            //BindingContext = new StoresViewModel();
         }
     }
 }

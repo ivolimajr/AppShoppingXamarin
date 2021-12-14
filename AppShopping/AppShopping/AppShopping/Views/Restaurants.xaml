@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppShopping.Views.Stores"
+             x:Class="AppShopping.Views.Restaurants"
              xmlns:ViewModel="clr-namespace:AppShopping.ViewModels"
              xmlns:partial="clr-namespace:AppShopping.Views.Partials"
-             xmlns:enums="clr-namespace:AppShopping.Libraries.Enums"
-             x:Name="StoresPage">
+             x:Name="RestaurantsPage"
+             xmlns:enums="clr-namespace:AppShopping.Libraries.Enums">
 
     <ContentPage.BindingContext>
-        <ViewModel:StoresViewModel>
+        <ViewModel:RestaurantsViewModel>
             <x:Arguments>
-                <enums:EstablishmentType>STORE</enums:EstablishmentType>
+                <enums:EstablishmentType>RESTAURANT</enums:EstablishmentType>
             </x:Arguments>
-        </ViewModel:StoresViewModel>
+        </ViewModel:RestaurantsViewModel>
     </ContentPage.BindingContext>
-    
+
     <Shell.TitleView>
         <partial:Header />
     </Shell.TitleView>
-    
+
     <ContentPage.Content>
         <StackLayout Padding="10">
             <Grid ColumnDefinitions="*,70" RowDefinitions="50" Margin="10,0">
                 <Frame>
                     <Entry Placeholder="Pesquisa" Text="{Binding SearchWord}" Grid.Column="0"/>
-                </Frame>                
+                </Frame>
                 <Button Text="OK" Command="{Binding SearchCommand}" Grid.Column="1" Style="{StaticResource PrimaryButton}"/>
             </Grid>
-            
+
             <CollectionView ItemsSource="{Binding Establishments}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -35,7 +35,7 @@
                             <Frame>
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
-                                        Command="{Binding Source={x:Reference StoresPage}, 
+                                        Command="{Binding Source={x:Reference RestaurantsPage}, 
                                         Path=BindingContext.DetailCommand}" 
                                         CommandParameter="{Binding .}" />
                                 </Frame.GestureRecognizers>
@@ -46,16 +46,17 @@
                                         <Label Text="{Binding Name}" Style="{StaticResource NameEstabeleshiment}"/>
                                         <Label Text="{Binding Description}" Style="{StaticResource DescriptionEstabeleshiment}" MaxLines="3" Grid.Column="2" />
                                     </StackLayout>
-                                    
-                                    
-                                </Grid>                                
+
+
+                                </Grid>
                             </Frame>
                         </ContentView>
-                        
-                        
+
+
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </StackLayout>
     </ContentPage.Content>
+    
 </ContentPage>
