@@ -12,6 +12,7 @@ namespace AppShopping
         {
             InitializeComponent();
             Routing.RegisterRoute("establishment/detail", typeof(EstablishmentDetail));
+            Routing.RegisterRoute("cinema/detail", typeof(CinemaDetail));
         }
     }
 }
