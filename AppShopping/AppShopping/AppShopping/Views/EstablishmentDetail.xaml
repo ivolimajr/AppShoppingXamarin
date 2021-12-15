@@ -11,6 +11,7 @@
             <converter:EstablishmentTypeConverter x:Key="EstablishmentTypeConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
+    
     <ContentPage.BindingContext>
         <ViewModel:EstablishmentDetailViewModel/>
     </ContentPage.BindingContext>

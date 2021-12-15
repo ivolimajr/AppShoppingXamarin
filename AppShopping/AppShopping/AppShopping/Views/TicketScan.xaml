@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppShopping.Views.TicketScan"
+             xmlns:partial="clr-namespace:AppShopping.Views.Partials"
+             xmlns:viewModel="clr-namespace:AppShopping.ViewModels">
+    
+    <Shell.TitleView>
+        <partial:Header />
+    </Shell.TitleView>
+
+    <ContentPage.BindingContext>
+        <viewModel:TicketScanViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            
+            <Label Text="Pague o seu" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource TitleType}"  Margin="0,26,0,0"/>
+            <Label Text="Ticket" HorizontalOptions="Start" VerticalOptions="Center"  Style="{StaticResource TitleName}" Margin="0,5,0,0"/>
+            
+            <Grid ColumnDefinitions="*,70" RowDefinitions="50" Margin="0,15">
+                <Frame>
+                    <Entry Placeholder="{Binding TicketNumber}" Text="{Binding SearchWord}" Grid.Column="0"/>
+                </Frame>
+                <Button ImageSource="Camera" Command="{Binding TicketScanCommand}" Grid.Column="1" Style="{StaticResource PrimaryButton}"/>
+            </Grid>
+            <Label Text="{Binding Message}" TextColor="{StaticResource ErrorColor}"/>
+
+            <Button Text="Tickets pago" Command="{Binding TicketPaidHistoryCommand}" VerticalOptions="EndAndExpand" HorizontalOptions="Center" Style="{StaticResource TicketPaidButton}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
