@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppShopping.Views.TicketScan"
              xmlns:partial="clr-namespace:AppShopping.Views.Partials"
-             xmlns:viewModel="clr-namespace:AppShopping.ViewModels">
-    
+             xmlns:viewModel="clr-namespace:AppShopping.ViewModels"
+             xmlns:control="clr-namespace:Xamarin.Forms.MaskedEntry;assembly=Xamarin.Forms.MaskedEntry"
+             xmlns:behaviors="clr-namespace:AppShopping.Libraries.Behaviors">
+
     <Shell.TitleView>
         <partial:Header />
     </Shell.TitleView>
@@ -12,16 +14,20 @@
     <ContentPage.BindingContext>
         <viewModel:TicketScanViewModel/>
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
         <StackLayout Padding="10">
-            
+
             <Label Text="Pague o seu" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource TitleType}"  Margin="0,26,0,0"/>
             <Label Text="Ticket" HorizontalOptions="Start" VerticalOptions="Center"  Style="{StaticResource TitleName}" Margin="0,5,0,0"/>
-            
+
             <Grid ColumnDefinitions="*,70" RowDefinitions="50" Margin="0,15">
                 <Frame>
-                    <Entry Placeholder="{Binding TicketNumber}" Text="{Binding SearchWord}" Grid.Column="0"/>
+                    <control:MaskedEntry Text="{Binding TicketNumber}" Keyboard="Numeric" Mask="XXX XXX XXX XXX" Placeholder="digite o código do ticket">
+                        <control:MaskedEntry.Behaviors>
+                            <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding TicketTextChangeCommand}" />
+                        </control:MaskedEntry.Behaviors>
+                    </control:MaskedEntry>
                 </Frame>
                 <Button ImageSource="Camera" Command="{Binding TicketScanCommand}" Grid.Column="1" Style="{StaticResource PrimaryButton}"/>
             </Grid>

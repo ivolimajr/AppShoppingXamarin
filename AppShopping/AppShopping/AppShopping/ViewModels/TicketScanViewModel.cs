@@ -11,6 +11,7 @@ namespace AppShopping.ViewModels
     public class TicketScanViewModel : BaseViewModel
     {
         public string TicketNumber { get; set; }
+        public ICommand TicketTextChangeCommand { get; set; }
         public ICommand TicketScanCommand { get; set; }
         public ICommand TicketPaidHistoryCommand { get; set; }
         private string _message;
@@ -30,6 +31,7 @@ namespace AppShopping.ViewModels
         {
             TicketScanCommand = new MvvmHelpers.Commands.AsyncCommand(TicketScan);
             TicketPaidHistoryCommand = new Command(TicketPaidHistory);
+            TicketTextChangeCommand = new Command(TicketTextChange);
         }
 
         private async Task TicketScan()
@@ -38,18 +40,17 @@ namespace AppShopping.ViewModels
             scanPage.OnScanResult += async (result) =>
             {
                 scanPage.IsScanning = false;
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Shell.Current.Navigation.PopAsync();
+                    Message = result.Text;
 
-                await Shell.Current.Navigation.PopAsync();
-
-                Message = result.Text;
-
-                TicketProccess(result.Text);
+                    TicketProccess(result.Text);
+                });
 
             };
 
             await Shell.Current.Navigation.PushAsync(scanPage);
-
-            //TicketProccess("");
         }
         private void TicketPaidHistory()
         {
@@ -60,12 +61,23 @@ namespace AppShopping.ViewModels
             try
             {
                 var ticket = new TicketService().GetTicket(ticketNumber);
+                if (ticket.Status == Libraries.Enums.TicketStatus.PAID)
+                    Message = "Ticket Pago";
+                if (ticket.Status == Libraries.Enums.TicketStatus.PEDING)
+                    Message = "Aguardando pagamento valor de: " + ticket.Price ;
 
             }
             catch (Exception e)
             {
 
                 Message = e.Message;
+            }
+        }
+        private void TicketTextChange()
+        {
+            if(TicketNumber != null && TicketNumber.Length == 15)
+            {
+                TicketProccess(TicketNumber.Replace(" ", string.Empty));
             }
         }
     }
